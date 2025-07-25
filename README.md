@@ -108,7 +108,7 @@ $ uvicorn main:app --reload
 ## :checkered_flag: Curl-Examples ##
 ## Curl Simple Examples with output
 1. Promotion - `POST api/promotion`
-  ```bash
+```bash
   $ curl -X 'POST' \
       'http://127.0.0.1:8000/api/promotion' \
       -H 'accept: application/json' \
@@ -121,7 +121,7 @@ $ uvicorn main:app --reload
       "ab_bucket": "A"
     }
     '
-    ```
+```
     Status code - 200
     Response Body 
     {
@@ -135,7 +135,7 @@ $ uvicorn main:app --reload
 
 2. Reload Rules Data `POST api/reload`
 ```bash
-$ curl -X 'POST' \
+  $ curl -X 'POST' \
     'http://127.0.0.1:8000/api/reload' \
     -H 'accept: application/json' \
     -d ''
