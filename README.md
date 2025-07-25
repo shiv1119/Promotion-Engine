@@ -35,9 +35,8 @@
   <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0;
   <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
   <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
-  <a href="#checkered_flag-Curl Simple Examples with output">Curl Examples</a> &#xa0; | &#xa0;
-  <a href="#checkered_flag-reflection">Reflection and Rationale</a> &#xa0; | &#xa0;
-  <a href="#memo-license">License</a> &#xa0; | &#xa0;
+  <a href="#checkered_flag-Curl-examples">Curl Examples</a> &#xa0; | &#xa0;
+  <a href="#checkered_flag-Reflection-Rationale">Reflection and Rationale</a> &#xa0; | &#xa0;
   <a href="https://github.com/shiv1119" target="_blank">Author</a>
 </p>
 
@@ -105,7 +104,7 @@ $ uvicorn main:app --reload
 
 # The server will initialize in the <http://localhost:5000 or http://127.0.0.1:8000>
 ```
-## :checkered_flag: Curl Simple Examples with output##
+## :checkered_flag: Curl-examples ##
 
 1. Promotion - `POST api/promotion`
 ```bash
@@ -162,8 +161,7 @@ $ uvicorn main:app --reload
       "avg_latency_ms": 0.04
     }
 
-## :checkered_flag: reflection ##
-## Reflection and Rationale
+## :checkered_flag: Reflection-Rationale ##
 
 ### A. Design Choices
 1. **Rule Representation & Storage** - I have chose to implement promotion rules using Pydantic Base Model classes for schema validation, type, safety and one of important for automatic documentation via Fast API. Rules are loaded from a YAML files into in-memory storage for fast access and evaluation.
