@@ -139,13 +139,13 @@ $ uvicorn main:app --reload
     'http://127.0.0.1:8000/api/reload' \
     -H 'accept: application/json' \
     -d ''
-
+```
     Status code = 200
     Response body
     {
       "status": "Rules reloaded successfully"
     }
-```
+
 3. Reload Rules Data `GET api/metrics`
 ```bash
 	$ curl -X 'GET' \
