@@ -35,7 +35,8 @@
   <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0;
   <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
   <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
-  <a href="#checkered_flag-Curl Examples">Curl Examples</a> &#xa0; | &#xa0;
+  <a href="#checkered_flag-Curl-Examples">Curl Examples</a> &#xa0; | &#xa0;
+  <a href="#checkered_flag-reflection">Reflection and Rationale</a> &#xa0; | &#xa0;
   <a href="#memo-license">License</a> &#xa0; | &#xa0;
   <a href="https://github.com/shiv1119" target="_blank">Author</a>
 </p>
@@ -106,10 +107,10 @@ $ uvicorn main:app --reload
 ```
 ## :checkered_flag: Curl-Examples ##
 ## Curl Simple Examples with output
-```bash
+
 
 1. Promotion - `POST api/promotion`
-
+  ```bash
   $ curl -X 'POST' \
       'http://127.0.0.1:8000/api/promotion' \
       -H 'accept: application/json' \
@@ -122,6 +123,7 @@ $ uvicorn main:app --reload
       "ab_bucket": "A"
     }
     '
+    ```
     Status code - 200
     Response Body 
     {
@@ -133,9 +135,9 @@ $ uvicorn main:app --reload
       }
     }
 
-2. Reload Rules Data `POST api/reload`**
-
-	$ curl -X 'POST' \
+2. Reload Rules Data `POST api/reload`
+```bash
+$ curl -X 'POST' \
     'http://127.0.0.1:8000/api/reload' \
     -H 'accept: application/json' \
     -d ''
@@ -145,13 +147,13 @@ $ uvicorn main:app --reload
     {
       "status": "Rules reloaded successfully"
     }
-
+```
 3. Reload Rules Data `GET api/metrics`
-
+```bash
 	$ curl -X 'GET' \
     'http://127.0.0.1:8000/api/metrics' \
     -H 'accept: application/json'
-
+```
     Status code - 200	
     Response body
 
@@ -162,7 +164,7 @@ $ uvicorn main:app --reload
       "avg_latency_ms": 0.04
     }
 ```
-
+## :checkered_flag: reflection ##
 ## Reflection and Rationale
 
 ### A. Design Choices
