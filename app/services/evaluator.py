@@ -1,5 +1,5 @@
-from models.schemas import Player
-from storage.rule_store import rule_storage
+from app.models.schemas import Player
+from app.storage.rule_store import rule_storage
 import time
 import random
 from datetime import datetime

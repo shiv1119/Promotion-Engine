@@ -1,7 +1,7 @@
 import os
 import yaml
-from models.schemas import Rule
-from storage.rule_store import rule_storage
+from app.models.schemas import Rule
+from app.storage.rule_store import rule_storage
 from typing import Optional
 
 #This function loads the promotion rules from yaml files into memory and stores using a storage object called rule_storage

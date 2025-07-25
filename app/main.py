@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
-from api.routes import router
-from services.loader import load_rules_from_yaml
-from core.config import RULE_FILE
+from app.api.routes import router
+from app.services.loader import load_rules_from_yaml
+from app.core.config import RULE_FILE
 import logging
 
 logging.basicConfig(level=logging.INFO)

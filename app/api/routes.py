@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
-from models.schemas import Player
-from services.evaluator import evaluate_rules, get_metrics
-from services.loader import load_rules_from_yaml
+from app.models.schemas import Player
+from app.services.evaluator import evaluate_rules, get_metrics
+from app.services.loader import load_rules_from_yaml
 from typing import Dict
 
 router = APIRouter()
@@ -9,7 +9,7 @@ router = APIRouter()
 from typing import Dict, Optional
 
 # This routes takes optional inputs from player's profile (like their level, country, spend tier, etc.) and and checks all promotion rules to see if the player qualifies for a promotion.
-@router.post("/promotion", response_model=Dict[str, Optional[dict]])  # Allow None
+@router.post("/promotion", response_model=Dict[str, Optional[dict]])
 def get_promotion(player: Player):
     try:
         promotion = evaluate_rules(player)

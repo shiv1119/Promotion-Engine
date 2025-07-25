@@ -1,6 +1,6 @@
 from typing import List
 from threading import Lock
-from models.schemas import Rule
+from app.models.schemas import Rule
 
 class RuleStorage:
     def __init__(self):
