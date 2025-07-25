@@ -1,0 +1,40 @@
+- id: promo_early_india
+  priority: 1
+  conditions:
+    country: ["IN"]
+    days_since_last_purchase: { min: 1, max: 3 }
+    ab_bucket: "A" 
+    time_window:
+      start: "2025-07-20T00:00:00"
+      end: "2025-07-30T23:59:59"
+  promotion:
+    type: "bonus_cash"
+    value: 25
+    weight: 0.7
+
+- id: promo_loyal_highspender
+  priority: 2
+  conditions:
+    level: [20, 21, 22, 23]
+    spend_tier: "high"
+    country: ["US"]
+    ab_bucket: "B"
+    time_window:
+      start: "2025-07-15T00:00:00"
+      end: "2025-08-01T23:59:59"
+  promotion:
+    type: "free_item"
+    item: "legendary_sword"
+    weight: 1.2
+
+- id: promo_generic_fallback
+  priority: 3
+  conditions:
+    level: [12]
+    spend_tier: "high"
+    days_since_last_purchase: { min: 0, max: 10 }
+  promotion:
+    type: "bonus_cash"
+    value: 10
+    weight: 1.0
+
