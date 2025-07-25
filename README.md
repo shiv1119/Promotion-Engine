@@ -35,7 +35,7 @@
   <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0;
   <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
   <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
-  <a href="#checkered_flag-Curl-Examples">Curl Examples</a> &#xa0; | &#xa0;
+  <a href="#checkered_flag-Curl Simple Examples with output">Curl Examples</a> &#xa0; | &#xa0;
   <a href="#checkered_flag-reflection">Reflection and Rationale</a> &#xa0; | &#xa0;
   <a href="#memo-license">License</a> &#xa0; | &#xa0;
   <a href="https://github.com/shiv1119" target="_blank">Author</a>
@@ -105,8 +105,8 @@ $ uvicorn main:app --reload
 
 # The server will initialize in the <http://localhost:5000 or http://127.0.0.1:8000>
 ```
-## :checkered_flag: Curl-Examples ##
-## Curl Simple Examples with output
+## :checkered_flag: Curl Simple Examples with output##
+
 1. Promotion - `POST api/promotion`
 ```bash
   $ curl -X 'POST' \
