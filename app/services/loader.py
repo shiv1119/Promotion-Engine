@@ -4,19 +4,8 @@ from models.schemas import Rule
 from storage.rule_store import rule_storage
 from typing import Optional
 
-
+#This function loads the promotion rules from yaml files into memory and stores using a storage object called rule_storage
 def load_rules_from_yaml(file_path: Optional[str] = None) -> None:
-    """
-    Loads promotion rules from a YAML file and stores them in the in-memory rule store.
-
-    Args:
-        file_path (str, optional): Path to the YAML file. Defaults to ../../rules.yaml.
-
-    Raises:
-        FileNotFoundError: If the YAML file doesn't exist.
-        yaml.YAMLError: If the YAML content is invalid.
-        ValueError: If rules cannot be parsed into the expected schema.
-    """
     try:
         if not file_path:
             current_dir = os.path.dirname(__file__)
@@ -42,4 +31,4 @@ def load_rules_from_yaml(file_path: Optional[str] = None) -> None:
 
     except Exception as e:
         print(f"[LoadRulesError] {e}")
-        raise  # re-raise to let FastAPI caller decide how to respond
+        raise 

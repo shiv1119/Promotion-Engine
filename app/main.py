@@ -5,7 +5,6 @@ from services.loader import load_rules_from_yaml
 from core.config import RULE_FILE
 import logging
 
-# Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
@@ -26,17 +25,17 @@ app = FastAPI(
     version="1.0.0",
     description="A flexible, rule-based promotion engine for game players.",
     lifespan=lifespan,
-    docs_url="/",            # Serve Swagger UI at root
-    redoc_url=None,          # Disable ReDoc
+    docs_url="/",           
+    redoc_url=None,         
     openapi_url="/openapi.json",
     swagger_ui_parameters={
-        "defaultModelsExpandDepth": -1,  # Hide schema sidebar
-        "docExpansion": "none",          # Collapse endpoints by default
-        "displayRequestDuration": True,  # Show request duration
+        "defaultModelsExpandDepth": -1, 
+        "docExpansion": "none",         
+        "displayRequestDuration": True,  
     },
     swagger_ui_init_oauth={},
 )
 
 
-# Register API routes
+# Here we register API routes
 app.include_router(router, prefix="/api", tags=["Promotion API"])

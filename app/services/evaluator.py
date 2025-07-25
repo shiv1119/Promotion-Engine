@@ -13,11 +13,8 @@ metrics = {
     "total_latency": 0.0,
 }
 
-
+# This is a helper function to check if current time falls within the given time window
 def _check_time_window(time_window: dict) -> bool:
-    """
-    Helper to check if current time is within the given time window.
-    """
     try:
         now = datetime.utcnow()
         start = time_window.get("start")
@@ -32,51 +29,41 @@ def _check_time_window(time_window: dict) -> bool:
             end = datetime.fromisoformat(end)
             if now > end:
                 return False
-
         return True
 
     except Exception as e:
-        # Fail-safe: if time format is wrong or invalid structure
         print(f"[TimeWindowError] Invalid time window: {e}")
         return False
 
 
+# This function evaluates conditions of a promotion rule
 def match_rule(rule, player: Player) -> bool:
     try:
-        print(f"Evaluating rule: {rule.id}")
         c = rule.conditions
 
         if c.level and (player.level is None or player.level not in c.level):
-            print(f"  Rule {rule.id} failed: level mismatch")
             return False
 
         if c.spend_tier and c.spend_tier != player.spend_tier:
-            print(f"  Rule {rule.id} failed: spend_tier mismatch")
             return False
 
         if c.country and (player.country is None or player.country not in c.country):
-            print(f"  Rule {rule.id} failed: country mismatch")
             return False
 
         if c.days_since_last_purchase:
             if player.days_since_last_purchase is None:
-                print(f"  Rule {rule.id} failed: no days_since_last_purchase")
                 return False
             min_days = c.days_since_last_purchase.get("min", float("-inf"))
             max_days = c.days_since_last_purchase.get("max", float("inf"))
             if not (min_days <= player.days_since_last_purchase <= max_days):
-                print(f"  Rule {rule.id} failed: days_since_last_purchase out of range")
                 return False
 
         if c.ab_bucket and getattr(player, "ab_bucket", None) != c.ab_bucket:
-            print(f"  Rule {rule.id} failed: ab_bucket mismatch")
             return False
 
         if c.time_window and not _check_time_window(c.time_window):
-            print(f"  Rule {rule.id} failed: time_window invalid")
             return False
-
-        print(f"  Rule {rule.id} matched!")
+        
         return True
 
     except Exception as e:
@@ -84,12 +71,8 @@ def match_rule(rule, player: Player) -> bool:
         return False
 
 
-
+# This function evaluates all the given rules and returns the selected promotion for a player if any match on any of the satisfying conditions. Used weighted randomness if multiples promotions are matched.
 def evaluate_rules(player: Player) -> Optional[dict]:
-    """
-    Evaluates all rules and returns the selected promotion for a player (if any).
-    Uses weighted randomness if multiple promotions match.
-    """
     try:
         start = time.time()
         matching_promotions = []
@@ -117,11 +100,8 @@ def evaluate_rules(player: Player) -> Optional[dict]:
         print(f"[EvaluateRulesError] Failed to evaluate rules for player {player}: {e}")
         return None
 
-
+# This function calculates and returns aggregate metrics about rule evaluations.
 def get_metrics() -> dict:
-    """
-    Returns aggregate metrics about rule evaluations.
-    """
     try:
         avg_latency = (
             metrics["total_latency"] / metrics["total_evaluations"]

@@ -7,16 +7,8 @@ class RuleStorage:
         self._rules: List[Rule] = []
         self._lock = Lock()
 
+    # This method loads the rules and sort the values based on priority. It replaces any sorted value
     def load_rules(self, rule_list: List[Rule]):
-        """
-        Load and sort rules based on priority. Replaces any previously stored rules.
-
-        Args:
-            rule_list (List[Rule]): A list of Rule objects.
-
-        Raises:
-            ValueError: If input is not a list of Rule instances.
-        """
         if not isinstance(rule_list, list) or not all(isinstance(r, Rule) for r in rule_list):
             raise ValueError("Input must be a list of Rule instances.")
 
@@ -27,13 +19,8 @@ class RuleStorage:
             print(f"[RuleStorageError] Failed to load rules: {e}")
             raise
 
+    # This method returns a shallow copy of the rules
     def get_rules(self) -> List[Rule]:
-        """
-        Returns a shallow copy of the rules.
-
-        Returns:
-            List[Rule]: The stored rules.
-        """
         try:
             with self._lock:
                 return self._rules.copy()
@@ -41,5 +28,4 @@ class RuleStorage:
             print(f"[RuleStorageError] Failed to retrieve rules: {e}")
             raise
 
-# Singleton instance
 rule_storage = RuleStorage()
