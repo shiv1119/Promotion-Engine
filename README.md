@@ -81,6 +81,9 @@ $
 # Run the project
 $ 
 
+# Run Tests
+$ pytest --cov=. or pytest
+
 # The server will initialize in the <http://localhost:5000 or http://127.0.0.1:8000>
 ```
 
