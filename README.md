@@ -90,5 +90,4 @@ $ pytest --cov=. or pytest
 Made with :heart: by <a href="https://github.com/shiv1119" target="_blank">Shiv Nandan Verma</a>
 
 &#xa0;
-
 <a href="#top">Back to top</a>
