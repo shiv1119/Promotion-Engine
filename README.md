@@ -112,10 +112,9 @@ $ uvicorn main:app --reload
 # The server will initialize in the <http://localhost:5000 or http://127.0.0.1:8000>
 ```
 
-
 ## Curl Simple Examples with output
 
-1. Promotion - `POST api/promotion`
+1. **Promotion - `POST api/promotion`**
 
   $ curl -X 'POST' \
       'http://127.0.0.1:8000/api/promotion' \
@@ -140,7 +139,7 @@ $ uvicorn main:app --reload
       }
     }
 
-2. Reload Rules Data `POST api/reload`
+2. **Reload Rules Data `POST api/reload`**
 
 	$ curl -X 'POST' \
     'http://127.0.0.1:8000/api/reload' \
@@ -153,7 +152,7 @@ $ uvicorn main:app --reload
       "status": "Rules reloaded successfully"
     }
 
-3. Reload Rules Data `GET api/metrics`
+3. **Reload Rules Data `GET api/metrics`**
 
 	$ curl -X 'GET' \
     'http://127.0.0.1:8000/api/metrics' \
