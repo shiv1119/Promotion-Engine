@@ -107,8 +107,6 @@ $ uvicorn main:app --reload
 ```
 ## :checkered_flag: Curl-Examples ##
 ## Curl Simple Examples with output
-
-
 1. Promotion - `POST api/promotion`
   ```bash
   $ curl -X 'POST' \
@@ -163,7 +161,7 @@ $ curl -X 'POST' \
       "misses": 0,
       "avg_latency_ms": 0.04
     }
-```
+
 ## :checkered_flag: reflection ##
 ## Reflection and Rationale
 
